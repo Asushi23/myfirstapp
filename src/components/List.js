@@ -3,12 +3,14 @@ import { StyleSheet, Text, View } from "react-native";
 
 class List extends Component {
   list = [13, 17, 20];
+
   render() {
+    // this.list.map((e, i) => console.log(e, i));
     return (
       <View>
-        <Text>{this.list[0]}</Text>
-        <Text>{this.list[1]}</Text>
-        <Text>{this.list[2]}</Text>
+        {this.list.map((e, i) => (
+          <Text key={i}>{e}</Text>
+        ))}
       </View>
     );
   }
