@@ -5,17 +5,27 @@ import Generate from "./src/components/Generate";
 
 import List from "./src/components/List";
 
+import Nav from "./src/components/Nav";
+
 class App extends Component {
+  state = {
+    nameOfApp: "My first App",
+    random: [15, 18]
+  };
+  addNumber = () => {
+    alert("add Number");
+  };
+
+  deleteNumber = () => {
+    alert("Delete Number");
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <View>
-          <Generate />
-        </View>
-
-        <View>
-          <List />
-        </View>
+        <Nav nameOfApp={this.state.nameOfApp} />
+        <Generate add={this.addNumber} />
+        <List items={this.state.random} />
       </View>
     );
   }
