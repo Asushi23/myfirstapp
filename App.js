@@ -10,14 +10,24 @@ import Nav from "./src/components/Nav";
 class App extends Component {
   state = {
     nameOfApp: "My first App",
-    random: [15, 18]
+    randoms: [15, 18]
   };
+
   addNumber = () => {
-    alert("add Number");
+    this.randomNumber();
   };
 
   deleteNumber = () => {
     alert("Delete Number");
+  };
+
+  randomNumber = () => {
+    const random = Math.floor(Math.random() * 100) + 1;
+    this.setState(prevstate => {
+      return {
+        randoms: [...prevstate.randoms, random]
+      };
+    });
   };
 
   render() {
@@ -25,7 +35,7 @@ class App extends Component {
       <View style={styles.container}>
         <Nav nameOfApp={this.state.nameOfApp} />
         <Generate add={this.addNumber} />
-        <List items={this.state.random} />
+        <List items={this.state.randoms} />
       </View>
     );
   }
