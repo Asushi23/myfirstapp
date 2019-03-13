@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-const List = props => {
-  // list = [13, 17, 20];
+const List = (props => {
+  return(
+    props.items.map((item,i)=>(
+      <TouchableOpacity>
+        <View>
+          <Text>{item}</Text>
+        </View>
+      </TouchableOpacity>
+    ))
+  )
+}
+  
+  
 
-  // this.list.map((e, i) => console.log(e, i));
-  return (
-    <View>
-      {props.items.map((e, i) => (
-        <Text key={i}>{e}</Text>
-      ))}
-    </View>
-  );
-};
+
+
 
 export default List;
